@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.movieapp.R
 import com.example.movieapp.data.api.ApiClient
 import com.example.movieapp.data.api.ApiService
 import com.example.movieapp.data.api.POSTER_BASE_URL
@@ -20,7 +19,7 @@ import java.util.Locale
 
 
 class SingleMovie : AppCompatActivity() {
-    private lateinit var viewModel: MovieViewModel
+    private lateinit var viewModel: SingleMovieViewModel
     private lateinit var movieRepository: MovieRepository
     private lateinit var binding: ActivitySingleMovieBinding
 
@@ -68,12 +67,12 @@ class SingleMovie : AppCompatActivity() {
        // movie_title.text=movieDetails.title
     }
 
-    private fun getViewModel(movieId: Int): MovieViewModel {
+    private fun getViewModel(movieId: Int): SingleMovieViewModel {
         return ViewModelProvider(this,object :ViewModelProvider.Factory{
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
-                return MovieViewModel(movieRepository,movieId) as T
+                return SingleMovieViewModel(movieRepository,movieId) as T
             }
-        })[MovieViewModel::class.java]
+        })[SingleMovieViewModel::class.java]
     }
 }

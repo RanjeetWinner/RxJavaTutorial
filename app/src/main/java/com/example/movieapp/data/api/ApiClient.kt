@@ -11,6 +11,10 @@ import java.util.concurrent.TimeUnit
 const val API_KEY="aa1d845a4e10c9551cbdb2a77dbd0458"
 const val BASE_URL="https://api.themoviedb.org/3/"
 const val POSTER_BASE_URL="https://image.tmdb.org/t/p/w342"
+
+
+const val FIRST_PAGE=1
+const val POST_PER_PAGE=20
 object ApiClient {
 
     fun getClient(): ApiService {

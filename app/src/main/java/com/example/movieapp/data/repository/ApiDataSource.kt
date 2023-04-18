@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import com.example.movieapp.data.api.ApiService
 import com.example.movieapp.data.model.MovieDetails
 import com.example.movieapp.data.network.NetworkState
-import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import java.lang.Exception

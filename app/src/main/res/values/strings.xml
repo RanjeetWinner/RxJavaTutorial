@@ -10,4 +10,5 @@
     <string name="revenue">Revenue: </string>
     <string name="runtime">Runtime : </string>
     <string name="budget">Budget: </string>
+    <string name="error_msg">Some Error Occured</string>
 </resources>
