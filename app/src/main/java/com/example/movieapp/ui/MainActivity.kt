@@ -10,7 +10,10 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.movieapp.data.api.ApiClient
 import com.example.movieapp.data.network.NetworkState
 import com.example.movieapp.databinding.ActivityMainBinding
+import com.example.movieapp.viewmodel.MovieViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MovieViewModel
@@ -58,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun getViewModel() : MovieViewModel{
+    private fun getViewModel() : MovieViewModel {
         return ViewModelProvider(this,object :ViewModelProvider.Factory{
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")

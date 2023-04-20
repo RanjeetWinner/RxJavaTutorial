@@ -5,8 +5,9 @@ import com.example.movieapp.data.api.ApiService
 import com.example.movieapp.data.model.MovieDetails
 import com.example.movieapp.data.network.NetworkState
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class MovieRepository(private val apiService: ApiService) {
+class MovieRepository @Inject constructor(private val apiService: ApiService) {
     lateinit var apiDataSource: ApiDataSource
 
     fun fetchSingleMovieDetail(compositeDisposable: CompositeDisposable,movieId :Int) : LiveData<MovieDetails>{

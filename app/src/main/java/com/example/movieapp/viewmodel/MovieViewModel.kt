@@ -1,14 +1,17 @@
-package com.example.movieapp.ui
+package com.example.movieapp.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import com.example.movieapp.data.model.Movie
-import com.example.movieapp.data.model.MovieDetails
 import com.example.movieapp.data.network.NetworkState
+import com.example.movieapp.ui.MoviesPagedListRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class MovieViewModel(private val movieRepository: MoviesPagedListRepository) : ViewModel() {
+@HiltViewModel
+class MovieViewModel @Inject constructor(private val movieRepository: MoviesPagedListRepository) : ViewModel() {
 
     private val compositeDisposable=CompositeDisposable()
 

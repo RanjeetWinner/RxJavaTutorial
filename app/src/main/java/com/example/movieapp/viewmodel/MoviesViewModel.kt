@@ -6,9 +6,12 @@ import androidx.paging.PagedList
 import com.example.movieapp.data.model.Movie
 import com.example.movieapp.data.network.NetworkState
 import com.example.movieapp.ui.MoviesPagedListRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.disposables.CompositeDisposable
+import javax.inject.Inject
 
-class MoviesViewModel(private val moviesPagedListRepository: MoviesPagedListRepository) : ViewModel() {
+@HiltViewModel
+class MoviesViewModel @Inject constructor(private val moviesPagedListRepository: MoviesPagedListRepository) : ViewModel() {
 
     private val compositeDisposable =CompositeDisposable()
 

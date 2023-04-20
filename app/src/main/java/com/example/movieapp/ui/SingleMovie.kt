@@ -14,10 +14,13 @@ import com.example.movieapp.data.model.MovieDetails
 import com.example.movieapp.data.network.NetworkState
 import com.example.movieapp.data.repository.MovieRepository
 import com.example.movieapp.databinding.ActivitySingleMovieBinding
+import com.example.movieapp.viewmodel.SingleMovieViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import java.text.NumberFormat
 import java.util.Locale
 
 
+@AndroidEntryPoint
 class SingleMovie : AppCompatActivity() {
     private lateinit var viewModel: SingleMovieViewModel
     private lateinit var movieRepository: MovieRepository
@@ -34,8 +37,8 @@ class SingleMovie : AppCompatActivity() {
         val apiService:ApiService=ApiClient.getClient()
         movieRepository= MovieRepository(apiService)
         
-        viewModel=getViewModel(movieId)
-
+        viewModel=getViewModel()
+        viewModel.setMovieId(movieId)
         viewModel.movieDetails.observe(this, Observer {
             bindUI(it)
         })
@@ -67,11 +70,11 @@ class SingleMovie : AppCompatActivity() {
        // movie_title.text=movieDetails.title
     }
 
-    private fun getViewModel(movieId: Int): SingleMovieViewModel {
+    private fun getViewModel(): SingleMovieViewModel {
         return ViewModelProvider(this,object :ViewModelProvider.Factory{
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
-                return SingleMovieViewModel(movieRepository,movieId) as T
+                return SingleMovieViewModel(movieRepository) as T
             }
         })[SingleMovieViewModel::class.java]
     }

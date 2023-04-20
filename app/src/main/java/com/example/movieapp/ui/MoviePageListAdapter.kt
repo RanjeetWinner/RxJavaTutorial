@@ -16,6 +16,7 @@ import com.example.movieapp.R
 import com.example.movieapp.data.api.POSTER_BASE_URL
 import com.example.movieapp.data.model.Movie
 import com.example.movieapp.data.network.NetworkState
+import com.example.movieapp.databinding.MovieListItemBinding
 
 class MoviePageListAdapter(val context: Context) : PagedListAdapter<Movie,RecyclerView.ViewHolder>(MovieDiffCallback()) {
 
@@ -45,7 +46,7 @@ class MoviePageListAdapter(val context: Context) : PagedListAdapter<Movie,Recycl
             view = layoutInflater.inflate(
                 R.layout.network_state_item, parent, false
             )
-            return MovieItemViewHolder(view)
+            return NetworkStateViewHolder(view)
         }
     }
 
